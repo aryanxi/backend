@@ -19,7 +19,10 @@ mongoose
     useUnifiedTopology: true,
   })
   .then(() => console.log("Connected to MongoDB Atlas!"))
-  .catch((err) => console.error("MongoDB connection error:", err.message));
+  .catch((err) => {
+    console.error("MongoDB connection error:", err.message);
+    process.exit(1); // Exit if MongoDB connection fails
+  });
 
 const app = express();
 app.use(cors());
@@ -61,6 +64,7 @@ cron.schedule("0 9 * * *", async () => {
     console.error("Error in scheduled task:", error);
   }
 });
+
 // Fetch all customers
 app.get("/customers", async (req, res) => {
   try {
@@ -71,6 +75,7 @@ app.get("/customers", async (req, res) => {
   }
 });
 
-app.listen(5001, () => {
-  console.log("Server running on port 5001");
+const port = process.env.PORT || 5001;  // Dynamic port for cloud deployment
+app.listen(port, () => {
+  console.log(`Server running on port ${port}`);
 });
