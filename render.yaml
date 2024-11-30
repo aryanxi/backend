@@ -6,8 +6,8 @@ services:
     startCommand: npm start
     envVars:
       - key: MONGO_URI
-        value:mongodb+srv://rnxcoding2004:vxPmpxhAW5S4qFe0@resort.qyld0.mongodb.net/resort?retryWrites=true&w=majority
+        value: mongodb+srv://rnxcoding2004:vxPmpxhAW5S4qFe0@resort.qyld0.mongodb.net/resort?retryWrites=true&w=majority
       - key: TWILIO_SID
-        value:ACd120cc81ec66e22371558db49931ee80
+        value: ACd120cc81ec66e22371558db49931ee80
       - key: TWILIO_AUTH_TOKEN
         value: 1a498dcf7e8708dc9e405ad3033ccd99
